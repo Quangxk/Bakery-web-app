@@ -1,20 +1,39 @@
 <template>
   <div class="wrapper">
     <div class="form">
-      <h2><i>Log In</i></h2>
+      <h2><i>Sign Up</i></h2>
       <p>
-        Log in to your account to access your profile info,<br />
+        Sign up to access your profile info,<br />
         order history and more.
       </p>
+      <div style="display: flex">
+        <div>
+          <input type="text" class="input" placeholder="First Name" />
+        </div>
+        <div>
+          <input
+            type="text"
+            class="input"
+            style="margin-left: 60px"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
       <div>
         <input type="text" placeholder="Email" />
       </div>
       <div>
-        <input type="text" placeholder="PassWord" />
+        <input type="text" placeholder="Password" />
       </div>
-      <a href="#">Forgot PassWord?</a>
-      <base-button to="" class="button"> Login </base-button>
-      <router-link to="/account/signup">Create account</router-link>
+      <base-button to="" class="button"> Create account </base-button>
+      <div style="display: flex; justify-content: center">
+        <p style="text-transform: uppercase; font-size: 14px">
+          already have an account?
+        </p>
+        <router-link to="/account/login" style="margin-left: 10px"
+          >Login Here</router-link
+        >
+      </div>
       <p style="margin-top: 15px">---------------or---------------</p>
       <div class="login facebook">
         <button>Login With Facebook</button>
@@ -50,9 +69,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-export default {};
-</script>
+<script lang="ts"></script>
 <style scoped>
 h2 {
   margin-bottom: 30px;
@@ -78,6 +95,16 @@ a {
   margin: auto;
   padding: 50px;
   text-align: center;
+}
+.input {
+  border: none;
+  border-bottom: 1px solid black;
+  height: 50px;
+  outline: none;
+  font-size: 15px;
+  width: 130px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 input {
   border: none;
