@@ -36,11 +36,11 @@
       </div>
       <p style="margin-top: 15px">---------------or---------------</p>
       <div class="login facebook">
-        <button>Login With Facebook</button>
+        <button>Signup with Facebook</button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
-          viewBox="0 0 320 512"
+          viewBox="0 0 448 512"
         >
           <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
           <path
@@ -49,7 +49,7 @@
         </svg>
       </div>
       <div class="login instagram">
-        <button>Login with Instagram</button>
+        <button>Signup with Instagram</button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"

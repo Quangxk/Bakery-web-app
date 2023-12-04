@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <div class="logo nav-item">Logo</div>
+      <router-link to="/home" class="logo nav-item">Logo</router-link>
       <div class="nav-item"><a href="#">Local Delivery/Pick Up</a></div>
 
       <div class="nav-item">
