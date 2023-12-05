@@ -25,7 +25,7 @@
       <div>
         <input type="text" placeholder="Password" />
       </div>
-      <base-button to="" class="button"> Create account </base-button>
+      <black-button to="" class="button"> Create account </black-button>
       <div style="display: flex; justify-content: center">
         <p style="text-transform: uppercase; font-size: 14px">
           already have an account?

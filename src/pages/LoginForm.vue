@@ -13,7 +13,7 @@
         <input type="text" placeholder="PassWord" />
       </div>
       <a href="#">Forgot PassWord?</a>
-      <base-button to="" class="button"> Login </base-button>
+      <black-button to="" class="button"> Login </black-button>
       <router-link to="/account/signup">Create account</router-link>
       <p style="margin-top: 15px">---------------or---------------</p>
       <div class="login facebook">

@@ -1,5 +1,5 @@
 <template>
-  <the-header></the-header>
+  <the-header class="header"></the-header>
   <router-view></router-view>
   <the-footer></the-footer>
 </template>
@@ -22,5 +22,9 @@ export default defineComponent({
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.header {
+  position: sticky;
+  top: 0;
 }
 </style>

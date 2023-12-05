@@ -111,11 +111,11 @@ export default {
   position: fixed;
 } */
 nav {
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100px;
-  background-color: transparent;
   background-size: auto;
 }
 nav:hover {
