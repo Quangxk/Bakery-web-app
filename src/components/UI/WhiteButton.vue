@@ -42,6 +42,7 @@ a:hover:before {
   width: 100%;
 }
 a:hover {
+  border: 1px solid white;
   color: white;
 }
 </style>
