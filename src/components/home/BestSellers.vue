@@ -1,7 +1,11 @@
 <template>
-  <ul v-for="item in itemStore.items" :key="item.name">
-    <li>
-      <base-item :itemName="item.name" :price="item.price"></base-item>
+  <ul class="bestseller">
+    <li class="item" v-for="item in itemStore.items" :key="item.name">
+      <base-item
+        :itemName="item.name"
+        :price="item.price"
+        :itemLink="item.link"
+      ></base-item>
     </li>
   </ul>
 </template>
@@ -15,4 +19,12 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.bestseller {
+  display: flex;
+  justify-content: space-around;
+}
+.item {
+  list-style: none;
+}
+</style>
