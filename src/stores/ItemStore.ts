@@ -17,6 +17,11 @@ export const useItemStore = defineStore("ItemStore", {
         name: "Pumpkin Pie",
         price: "$22",
       },
+      {
+        link: "https://th.bing.com/th/id/OIP.uNQZfoh-kjfvsQ_Pn7Ba2QHaJQ?rs=1&pid=ImgDetMain",
+        name: "Red Velvet Cake",
+        price: "$30",
+      },
     ],
   }),
 });

@@ -1,16 +1,42 @@
 <template>
   <div class="item">
     <div class="wrapper">
-      <img class="image" :src="itemLink" height="250" width="300" />
-      <button>Add to cart</button>
+      <img
+        class="image"
+        :src="itemLink"
+        height="250"
+        width="300"
+        v-on:mouseleave="mouseleave()"
+        v-on:mouseover="mouseover()"
+      />
     </div>
+    <div class="view" v-if="isShow">
+      <p>View Item</p>
+    </div>
+
     <p>{{ itemName }}</p>
     <p>{{ price }}</p>
   </div>
 </template>
 <script lang="ts">
+import { ref } from "vue";
 export default {
   props: ["itemName", "price", "itemLink"],
+  setup() {
+    const isShow = ref(false);
+    function mouseover() {
+      isShow.value = !isShow.value;
+    }
+    function mouseleave() {
+      isShow.value = !isShow.value;
+    }
+
+    return {
+      mouseover,
+      isShow,
+      mouseleave,
+    };
+  },
 };
 </script>
 <style scoped>
@@ -23,9 +49,16 @@ export default {
   padding: 50px;
 }
 .image {
+  cursor: pointer;
   object-fit: cover;
 }
-button {
-  display: none;
+.view {
+  display: flex;
+  width: inherit;
+  text-align: center;
+  height: 50px;
+  background-color: aqua;
+  justify-content: center;
+  align-items: center;
 }
 </style>

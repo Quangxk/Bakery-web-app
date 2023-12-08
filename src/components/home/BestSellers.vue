@@ -22,9 +22,10 @@ export default {
 <style scoped>
 .bestseller {
   display: flex;
-  justify-content: space-around;
 }
 .item {
   list-style: none;
+  margin-left: 19px;
+  margin-right: 19px;
 }
 </style>
