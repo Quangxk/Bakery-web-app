@@ -52,7 +52,14 @@ export default {
   cursor: pointer;
   object-fit: cover;
 }
+.image:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+  overflow: hidden;
+}
 .view {
+  margin-top: 160px;
+  position: absolute;
   display: flex;
   width: inherit;
   text-align: center;

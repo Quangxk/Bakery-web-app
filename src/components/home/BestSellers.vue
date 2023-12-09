@@ -1,6 +1,6 @@
 <template>
   <ul class="bestseller">
-    <li class="item" v-for="item in itemStore.items" :key="item.name">
+    <li class="item" v-for="item in BestSellers.items" :key="item.name">
       <base-item
         :itemName="item.name"
         :price="item.price"
@@ -10,12 +10,12 @@
   </ul>
 </template>
 <script lang="ts">
-import { useItemStore } from "../../stores/ItemStore";
+import { useBestSellers } from "../../stores/BestSellers";
 export default {
   setup() {
-    const itemStore = useItemStore();
+    const BestSellers = useBestSellers();
 
-    return { itemStore };
+    return { BestSellers };
   },
 };
 </script>
