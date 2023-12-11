@@ -4,7 +4,7 @@ import router from "./router";
 import BaseItem from "./components/UI/BaseItem.vue";
 import BlackButton from "./components/UI/BlackButton.vue";
 import WhiteButton from "./components/UI/WhiteButton.vue";
-import ItemPage from "./components/UI/ItemPage.vue";
+import BaseDesc from "./components/UI/BaseDesc.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { createPinia } from "pinia";
 /* import font awesome icon component */
@@ -18,7 +18,7 @@ import { faAddressBook } from "@fortawesome/free-regular-svg-icons";
 /* add icons to the library */
 library.add(faUserSecret, faAddressBook);
 const app = createApp(App);
-app.component("item-page", ItemPage);
+app.component("base-desc", BaseDesc);
 app.component("base-item", BaseItem);
 app.component("black-button", BlackButton);
 app.component("white-button", WhiteButton);

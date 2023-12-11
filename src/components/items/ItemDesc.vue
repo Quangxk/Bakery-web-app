@@ -1,25 +1,25 @@
 <template>
-  <item-page
-    :name="cake.name"
-    :price="cake.price"
-    :link="cake.link"
-    :desc="cake.description"
-  ></item-page>
+  <base-desc
+    :name="item.name"
+    :price="item.price"
+    :link="item.link"
+    :desc="item.description"
+  ></base-desc>
 </template>
 <script lang="ts">
 import { storeToRefs } from "pinia";
-import { Cake } from "../../stores/AllProduct";
+import { Item } from "../../stores/AllProduct";
 import { useAllProduct } from "../../stores/AllProduct";
 export default {
   setup() {
     const allProductStore = useAllProduct();
     const { items } = storeToRefs(allProductStore);
-    const cake = items.value.find(
+    const item = items.value.find(
       (item) => item.name == "Chocolate Cake"
-    ) as Cake;
+    ) as Item;
     return {
       items,
-      cake,
+      item,
     };
   },
 };

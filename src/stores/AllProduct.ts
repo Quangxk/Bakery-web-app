@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export interface Cake {
+export interface Item {
   link: string;
   name: string;
   price: string | number;
@@ -34,7 +34,7 @@ export const useAllProduct = defineStore("AllProduct", {
         price: 20 as string | number,
         description: "test",
       },
-    ] as Cake[],
+    ] as Item[],
   }),
   // const items: Cake[] = ref([{}]);
 });

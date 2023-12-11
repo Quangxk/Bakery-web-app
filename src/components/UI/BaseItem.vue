@@ -1,14 +1,16 @@
 <template>
   <div class="item">
     <div class="wrapper">
-      <img
-        class="image"
-        :src="itemLink"
-        height="250"
-        width="300"
-        v-on:mouseleave="mouseleave()"
-        v-on:mouseover="mouseover()"
-      />
+      <router-link to="/items/chocolatecake">
+        <img
+          class="image"
+          :src="itemLink"
+          height="250"
+          width="300"
+          v-on:mouseleave="mouseleave()"
+          v-on:mouseover="mouseover()"
+        />
+      </router-link>
     </div>
     <div class="view" v-if="isShow">
       <p>View Item</p>
