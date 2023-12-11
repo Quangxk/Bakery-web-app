@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <img :src="link" />
+    <img :src="link" height="250" width="300" />
     <div class="description">
       <p>{{ name }}</p>
       <p>{{ desc }}</p>
       <p>{{ price }}</p>
-      <white-button>Add To Cart</white-button>
+      <white-button to="">Add To Cart ${{ price }}</white-button>
     </div>
   </div>
 </template>

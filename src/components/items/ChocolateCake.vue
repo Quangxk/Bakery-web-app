@@ -1,18 +1,25 @@
 <template>
-  <item-page :name="cake.name" :price="cake.price"></item-page>
+  <item-page
+    :name="cake.name"
+    :price="cake.price"
+    :link="cake.link"
+    :desc="cake.description"
+  ></item-page>
 </template>
 <script lang="ts">
 import { storeToRefs } from "pinia";
+import { Cake } from "../../stores/AllProduct";
 import { useAllProduct } from "../../stores/AllProduct";
-import { useRoute } from "vue-router";
 export default {
   setup() {
     const allProductStore = useAllProduct();
     const { items } = storeToRefs(allProductStore);
-    const route = useRoute();
-    const cake = items.value.find((item) => item.name === route.params.id);
+    const cake = items.value.find(
+      (item) => item.name == "Chocolate Cake"
+    ) as Cake;
     return {
-      items,cake
+      items,
+      cake,
     };
   },
 };
