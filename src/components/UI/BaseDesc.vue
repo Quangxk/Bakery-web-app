@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 export default {
-  props: ["name", "price", "desc", "link"],
+  props: ["name", "price", "desc", "link", 'id'],
 };
 </script>
 <style scoped></style>

@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div class="wrapper">
-      <router-link to="/items/chocolatecake">
+      <router-link :to="`/items/itemName`">
         <img
           class="image"
           :src="itemLink"
