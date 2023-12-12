@@ -5,6 +5,7 @@
         :itemName="item.name"
         :price="item.price"
         :itemLink="item.link"
+        :id="item.id"
       ></base-item>
     </li>
   </ul>

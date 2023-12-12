@@ -10,7 +10,7 @@ const router = createRouter({
     { path: "/", redirect: "/home" },
     { path: "/home", component: HomePage },
     { path: "/account/signup", component: SignupForm },
-    { path: "/items/:name", component: ItemDesc , props : true},
+    { path: "/items/:id", component: ItemDesc },
   ],
 });
 export default router;

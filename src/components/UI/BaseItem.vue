@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div class="wrapper">
-      <router-link :to="`/items/itemName`">
+      <router-link :to="`/items/${id}`">
         <img
           class="image"
           :src="itemLink"
@@ -23,7 +23,7 @@
 <script lang="ts">
 import { ref } from "vue";
 export default {
-  props: ["itemName", "price", "itemLink"],
+  props: ["itemName", "price", "itemLink", "id"],
   setup() {
     const isShow = ref(false);
     function mouseover() {

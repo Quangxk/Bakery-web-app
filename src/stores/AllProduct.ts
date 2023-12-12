@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export interface Item {
   link: string;
   name: string;
-  id: string | number;
+  id: number;
   price: string | number;
   description: string;
 }
