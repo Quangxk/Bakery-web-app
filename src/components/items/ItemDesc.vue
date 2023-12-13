@@ -8,13 +8,13 @@
 </template>
 <script lang="ts">
 import { storeToRefs } from "pinia";
-import { Item } from "../../stores/AllProduct";
-import { useAllProduct } from "../../stores/AllProduct";
+import { Item } from "../../stores/Product";
+import { useProduct } from "../../stores/Product";
 import { useRoute } from "vue-router";
 export default {
   setup() {
-    const allProductStore = useAllProduct();
-    const { items } = storeToRefs(allProductStore);
+    const all = useProduct();
+    const { items } = storeToRefs(all);
     const route = useRoute();
     const item = items.value.find(
       (item) => item.id.toString() === route.params.id

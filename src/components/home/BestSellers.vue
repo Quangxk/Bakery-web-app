@@ -1,6 +1,6 @@
 <template>
   <ul class="bestseller">
-    <li class="item" v-for="item in BestSellers.items" :key="item.name">
+    <li class="item" v-for="item in result" :key="item.name">
       <base-item
         :itemName="item.name"
         :price="item.price"
@@ -11,12 +11,12 @@
   </ul>
 </template>
 <script lang="ts">
-import { useBestSellers } from "../../stores/BestSellers";
+import { useProduct } from "../../stores/Product";
 export default {
   setup() {
-    const BestSellers = useBestSellers();
-
-    return { BestSellers };
+    const all = useProduct();
+    const result = all.items.filter((item) => (item.isBestseller = true));
+    return { all, result };
   },
 };
 </script>
