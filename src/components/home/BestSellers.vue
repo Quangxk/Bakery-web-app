@@ -2,6 +2,7 @@
   <ul class="bestseller">
     <li class="item" v-for="item in result" :key="item.name">
       <base-item
+        class="item"
         :itemName="item.name"
         :price="item.price"
         :itemLink="item.link"
@@ -15,7 +16,8 @@ import { useProduct } from "../../stores/Product";
 export default {
   setup() {
     const all = useProduct();
-    const result = all.items.filter((item) => (item.isBestseller = true));
+    const result = all.items.filter((item) => item.isBestseller == true);
+    console.log(result);
     return { all, result };
   },
 };

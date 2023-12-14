@@ -11,7 +11,16 @@
 </template>
 <script lang="ts">
 export default {
-  props: ["name", "price", "desc", "link", 'id'],
+  props: ["name", "price", "desc", "link", "id"],
 };
 </script>
-<style scoped></style>
+<style scoped>
+.wrapper {
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+img {
+  object-fit: cover;
+}
+</style>

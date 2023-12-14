@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <p class="caption">sussy baka amongus</p>
+      <p class="caption">brot und kaffe</p>
       <white-button class="button" to="">discover now</white-button>
     </div>
   </div>
@@ -12,6 +12,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  object-fit: cover;
   height: 700px;
   display: flex;
   justify-content: center;

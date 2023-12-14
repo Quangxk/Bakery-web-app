@@ -31,10 +31,6 @@ export default {
         title: "Homemade",
         link: "#",
       },
-      {
-        title: "Corporate Giftings",
-        link: "#",
-      },
     ];
 
     return { categories };
@@ -52,6 +48,7 @@ export default {
   background-color: beige;
   position: absolute;
   top: 100px;
+  left: 0;
 }
 li {
   margin-bottom: 30px;

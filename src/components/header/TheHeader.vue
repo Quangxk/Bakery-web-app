@@ -1,32 +1,26 @@
 <template>
   <header>
     <nav>
-      <router-link to="/home" class="logo nav-item">Logo</router-link>
-      <div class="nav-item"><a href="#">Local Delivery/Pick Up</a></div>
+      <div style="display: flex">
+        <router-link to="/home" class="logo nav-item">Logo</router-link>
+        <div class="nav-item" @click="setCatDropdown">
+          <a href="#">Pastry</a>
+        </div>
 
-      <div class="nav-item">
-        <a href="#" @mouseover="setCatDropdown">Categories</a>
+        <div class="nav-item">
+          <a href="#">Drinks</a>
+        </div>
+        <transition name="cat">
+          <categories-dropdown v-if="catDropdown"></categories-dropdown>
+        </transition>
+
+        <div class="nav-item"><a href="#">Location</a></div>
+        <div class="nav-item">
+          <a href="#">About us</a>
+        </div>
       </div>
-      <transition name="cat">
-        <categories-dropdown
-          v-if="catDropdown"
-          @mouseleave="setCatDropdown"
-        ></categories-dropdown>
-      </transition>
-
-      <div class="nav-item"><a href="#">Corporate Gifting</a></div>
-      <div class="nav-item">
-        <a href="#" @mouseover="setCelDropdown" @mouseleave="setCelDropdown"
-          >Celebrations</a
-        >
-      </div>
-      <transition>
-        <celebration-dropdown v-if="celDropdown"></celebration-dropdown>
-      </transition>
-      <div class="nav-item"><a href="#">Location</a></div>
-
-      <div class="nav-item">
-        <a @click="setSearchBar" class="icon">
+      <div>
+        <a @click="setSearchBar" class="nav-item">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -38,7 +32,7 @@
             />
           </svg>
         </a>
-        <router-link to="/account/login" class="icon">
+        <router-link to="/account/login" class="nav-item">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -50,7 +44,7 @@
             />
           </svg>
         </router-link>
-        <router-link to="/account/login" class="icon">
+        <router-link to="/account/login" class="nav-item">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -70,13 +64,11 @@
 <script lang="ts">
 import { RouterLink } from "vue-router";
 import CategoriesDropdown from "./CategoriesDropdown.vue";
-import CelebrationDropdown from "./CelebrationDropdown.vue";
 import SearchBar from "./SearchBar.vue";
 import { ref } from "vue";
 export default {
   components: {
     CategoriesDropdown,
-    CelebrationDropdown,
     SearchBar,
     RouterLink,
   },
@@ -85,9 +77,7 @@ export default {
     const catDropdown = ref(false);
     const searchBar = ref(false);
     const setCatDropdown = () => {
-      setTimeout(() => {
-        catDropdown.value = !catDropdown.value;
-      }, 200);
+      catDropdown.value = !catDropdown.value;
     };
     const setCelDropdown = () => {
       celDropdown.value = !celDropdown.value;
@@ -114,7 +104,7 @@ nav {
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 100px;
   background-size: auto;
 }
@@ -129,12 +119,17 @@ a {
 .nav-item {
   padding: 25px 50px 25px 20px;
   cursor: pointer;
+  height: 60px;
+  border: transparent;
+}
+.nav-item:hover {
+  border-bottom: solid 1px #000;
 }
 .nav-item:hover a {
   transition: 1s;
   color: red;
 }
 .icon {
-  margin-left: 30px;
+  margin-left: 50px;
 }
 </style>
