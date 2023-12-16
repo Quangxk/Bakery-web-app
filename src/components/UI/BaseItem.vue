@@ -18,13 +18,13 @@
 
     <p>{{ itemName }}</p>
     <p>{{ price }}</p>
-    <p>{{ isbest }}</p>
+    <p>{{ category }}</p>
   </div>
 </template>
 <script lang="ts">
 import { ref } from "vue";
 export default {
-  props: ["itemName", "price", "itemLink", "id", "isbest"],
+  props: ["itemName", "price", "itemLink", "id", "category"],
   setup() {
     const isShow = ref(false);
     function mouseover() {
@@ -61,7 +61,7 @@ export default {
   overflow: hidden;
 }
 .view {
-  margin-top: 143px;
+  margin-top: 160px;
   position: absolute;
   display: flex;
   width: inherit;

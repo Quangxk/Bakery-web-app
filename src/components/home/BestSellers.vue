@@ -16,7 +16,7 @@ import { useProduct } from "../../stores/Product";
 export default {
   setup() {
     const all = useProduct();
-    const result = all.items.filter((item) => item.isBestseller == true);
+    const result = all.items.filter((item) => item.category == "bestseller");
     console.log(result);
     return { all, result };
   },
