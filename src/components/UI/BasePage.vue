@@ -27,7 +27,7 @@ import { useProduct } from "../../stores/Product";
 export default {
   setup() {
     const all = useProduct().items;
-
+    console.log(all);
     return {
       all,
     };
