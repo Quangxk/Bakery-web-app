@@ -27,7 +27,6 @@ import { useProduct } from "../../stores/Product";
 export default {
   setup() {
     const all = useProduct().items;
-    console.log(all);
     return {
       all,
     };
@@ -51,5 +50,24 @@ li {
 .title {
   margin-left: 50px;
   margin-top: 50px;
+  position: relative;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: -105%;
+  background: red;
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
+  transition: transform 0.8s ease;
+}
+.title:hover::after {
+  transform: scale(1, 1);
+}
+a {
+  text-decoration: none;
 }
 </style>
