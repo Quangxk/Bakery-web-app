@@ -48,7 +48,7 @@ li {
   justify-content: center;
 }
 .title {
-  margin-left: 50px;
+  margin-left: 80px;
   margin-top: 50px;
   position: relative;
 }

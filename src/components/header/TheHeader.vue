@@ -125,20 +125,9 @@ a {
   height: 60px;
   border: transparent;
 }
-.nav-item::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  left: 0;
-  bottom: 0;
-  background: red;
-  transform: scale(0, 1);
-  transform-origin: 0% 100%;
-  transition: transform 0.8s ease;
-}
-.nav-item:hover::after {
-  transform: scale(1, 1);
+
+.nav-item:hover {
+  border-bottom: 1px solid black;
 }
 .icon {
   margin-left: 50px;
