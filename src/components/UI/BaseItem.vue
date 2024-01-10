@@ -1,44 +1,19 @@
 <template>
   <div class="item">
+    <p>{{ itemName }}</p>
     <div class="wrapper">
       <router-link :to="`/items/${id}`">
-        <img
-          class="image"
-          :src="itemLink"
-          height="250"
-          width="300"
-          v-on:mouseleave="mouseleave()"
-          v-on:mouseover="mouseover()"
-        />
+        <img class="image" :src="itemLink" height="250" width="300" />
       </router-link>
     </div>
-    <div class="view" v-if="isShow">
-      <p>View Item</p>
-    </div>
-
-    <p>{{ itemName }}</p>
-    <p>{{ price }}</p>
-    <p>{{ category }}</p>
   </div>
 </template>
 <script lang="ts">
 import { ref } from "vue";
 export default {
-  props: ["itemName", "price", "itemLink", "id", "category"],
+  props: ["itemName", "price", "itemLink", "id"],
   setup() {
-    const isShow = ref(false);
-    function mouseover() {
-      isShow.value = !isShow.value;
-    }
-    function mouseleave() {
-      isShow.value = !isShow.value;
-    }
-
-    return {
-      mouseover,
-      isShow,
-      mouseleave,
-    };
+    return {};
   },
 };
 </script>
@@ -55,20 +30,9 @@ export default {
   cursor: pointer;
   object-fit: cover;
 }
-.image:hover {
+.item:hover {
   opacity: 0.5;
   transition: 0.5s;
   overflow: hidden;
-}
-.view {
-  margin-top: 160px;
-  position: absolute;
-  display: flex;
-  width: inherit;
-  text-align: center;
-  height: 50px;
-  background-color: aqua;
-  justify-content: center;
-  align-items: center;
 }
 </style>

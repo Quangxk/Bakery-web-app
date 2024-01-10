@@ -3,7 +3,8 @@ import LoginForm from "./pages/LoginForm.vue";
 import HomePage from "./pages/HomePage.vue";
 import SignupForm from "./pages/SignupForm.vue";
 import ItemDesc from "./components/items/ItemDesc.vue";
-import BasePage from "./components/UI/BasePage.vue";
+import BestSeller from "./components/product/BestSeller.vue";
+import AllProduct from "./components/product/AllProduct.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -12,7 +13,8 @@ const router = createRouter({
     { path: "/home", component: HomePage },
     { path: "/account/signup", component: SignupForm },
     { path: "/items/:id", component: ItemDesc },
-    { path: "/all", component: BasePage },
+    { path: "/products/all", component: AllProduct },
+    { path: "/products/bestseller", component: BestSeller },
   ],
 });
 export default router;

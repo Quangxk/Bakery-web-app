@@ -9,7 +9,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { createPinia } from "pinia";
 /* import font awesome icon component */
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
+import BasePage from "./components/UI/BasePage.vue";
 /* import specific icons */
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -22,6 +22,7 @@ app.component("base-desc", BaseDesc);
 app.component("base-item", BaseItem);
 app.component("black-button", BlackButton);
 app.component("white-button", WhiteButton);
+app.component("base-page", BasePage);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(createPinia());
 app.use(router);

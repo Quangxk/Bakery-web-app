@@ -191,7 +191,7 @@ footer {
 
   bottom: 0;
   display: flex;
-  background-color: #0b1c2c;
+  background-color: beige;
   width: 100%;
   font-family: "linotype-didot";
   padding-top: 50px;
@@ -214,7 +214,7 @@ footer {
 }
 a,
 p {
-  color: white;
+  color: black;
 }
 a {
   text-decoration: none;

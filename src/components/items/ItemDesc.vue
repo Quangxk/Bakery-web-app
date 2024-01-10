@@ -19,7 +19,6 @@ export default {
     const item = items.value.find(
       (item) => item.id.toString() === route.params.id
     ) as Item;
-    console.log(item);
     return {
       items,
       item,

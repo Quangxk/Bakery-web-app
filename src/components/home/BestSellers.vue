@@ -11,16 +11,13 @@
     </li>
   </ul>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import { useProduct } from "../../stores/Product";
-export default {
-  setup() {
-    const all = useProduct();
-    const result = all.items.filter((item) => item.category == "bestseller");
-    console.log(result);
-    return { all, result };
-  },
-};
+const all = useProduct();
+const result = all.items.filter((item) =>
+  item.categories.includes("bestseller")
+);
+console.log(result);
 </script>
 <style scoped>
 .bestseller {

@@ -2,17 +2,14 @@
   <header>
     <nav>
       <div style="display: flex">
-        <router-link to="/home" class="logo nav-item">Logo</router-link>
-        <div class="nav-item" @click="setCatDropdown">
-          <a href="#">Pastry</a>
+        <router-link to="/home" class="logo nav-item">Home</router-link>
+        <div class="nav-item">
+          <router-link to="/products/all" href="#">Pastry</router-link>
         </div>
-
         <div class="nav-item">
           <a href="#">Drinks</a>
         </div>
-        <transition name="cat">
-          <categories-dropdown v-if="catDropdown"></categories-dropdown>
-        </transition>
+        <transition name="cat"> </transition>
 
         <div class="nav-item"><a href="#">Location</a></div>
         <div class="nav-item">
@@ -63,33 +60,19 @@
 </template>
 <script lang="ts">
 import { RouterLink } from "vue-router";
-import CategoriesDropdown from "./CategoriesDropdown.vue";
 import SearchBar from "./SearchBar.vue";
 import { ref } from "vue";
 export default {
   components: {
-    CategoriesDropdown,
     SearchBar,
     RouterLink,
   },
   setup() {
-    const celDropdown = ref(false);
-    const catDropdown = ref(false);
     const searchBar = ref(false);
-    const setCatDropdown = () => {
-      catDropdown.value = !catDropdown.value;
-    };
-    const setCelDropdown = () => {
-      celDropdown.value = !celDropdown.value;
-    };
     const setSearchBar = () => {
       searchBar.value = !searchBar.value;
     };
     return {
-      catDropdown,
-      setCatDropdown,
-      celDropdown,
-      setCelDropdown,
       searchBar,
       setSearchBar,
     };
@@ -103,32 +86,29 @@ export default {
 header {
   z-index: 2;
 }
+a {
+  color: whitesmoke;
+}
 nav {
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 100px;
   background-size: auto;
-}
-nav:hover {
-  background-color: beige;
-  transition: 2s;
+  background-color: rgb(97, 20, 7);
   box-shadow: 1px 1px 1px;
 }
 a {
   text-decoration: none;
 }
 .nav-item {
-  padding: 25px 50px 25px 20px;
+  margin-right: 50px;
+  padding: 25px 25px 25px 25px;
   cursor: pointer;
   height: 60px;
   border: transparent;
 }
 
-.nav-item:hover {
-  border-bottom: 1px solid black;
-}
 .icon {
   margin-left: 50px;
 }

@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="container">
       <p class="caption">brot und kaffe</p>
-      <white-button class="button" to="">discover now</white-button>
+      <white-button class="button" to="/all">discover now</white-button>
     </div>
   </div>
 </template>

@@ -8,33 +8,32 @@
       <router-link class="title" to="">Homemade</router-link>
     </div>
     <div>
-      <ul class="item">
-        <li v-for="item in all" :key="item.id">
+      <ul class="items">
+        <li v-for="item in items" :key="item.id">
           <base-item
             :itemName="item.name"
             :price="item.price"
             :itemLink="item.link"
             :id="item.id"
-            :category="item.category"
+            :category="item.categories"
           ></base-item>
         </li>
       </ul>
     </div>
   </div>
 </template>
-<script lang="ts">
-import { useProduct } from "../../stores/Product";
-export default {
-  setup() {
-    const all = useProduct().items;
-    return {
-      all,
-    };
+<script setup lang="ts">
+defineProps({
+  items: {
+    required: true,
+    type: Array as PropType<Item[]>,
   },
-};
+});
+import { PropType, defineProps } from "vue";
+import { Item } from "../../stores/Product";
 </script>
 <style scoped>
-.item {
+.items {
   margin-left: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
