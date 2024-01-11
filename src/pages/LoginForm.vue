@@ -103,6 +103,7 @@ input {
   width: 100%;
 }
 button {
+  color: white;
   display: inline-block;
   font-size: 14px;
   text-transform: uppercase;

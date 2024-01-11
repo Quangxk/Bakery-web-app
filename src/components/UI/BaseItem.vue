@@ -9,7 +9,6 @@
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
 export default {
   props: ["itemName", "price", "itemLink", "id"],
   setup() {
@@ -26,11 +25,19 @@ export default {
   width: 300px;
   padding: 50px;
 }
+p {
+  margin-bottom: 20px;
+  display: flex;
+  width: inherit;
+  justify-content: center;
+}
 .image {
+  border-radius: 10%;
   cursor: pointer;
   object-fit: cover;
+  box-shadow: 2px 5px 5px gray;
 }
-.item:hover {
+.image:hover {
   opacity: 0.5;
   transition: 0.5s;
   overflow: hidden;

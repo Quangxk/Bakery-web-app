@@ -2,8 +2,10 @@
   <div class="wrapper">
     <div class="image"></div>
     <div class="nav">
-      <router-link class="title" to="">All Products</router-link>
-      <router-link class="title" to="">Best Sellers</router-link>
+      <router-link class="title" to="/products/all">All Products</router-link>
+      <router-link class="title" to="/products/bestseller"
+        >Best Sellers</router-link
+      >
       <router-link class="title" to="">Holiday Gifts</router-link>
       <router-link class="title" to="">Homemade</router-link>
     </div>
@@ -43,8 +45,10 @@ li {
   list-style: none;
 }
 .nav {
+  margin-right: 80px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .title {
   margin-left: 80px;

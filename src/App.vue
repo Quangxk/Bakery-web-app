@@ -1,4 +1,5 @@
 <template>
+  <link href="https://fonts.cdnfonts.com/css/sweet-sans-pro" rel="stylesheet" />
   <the-header class="header"></the-header>
   <router-view></router-view>
   <the-footer></the-footer>
@@ -23,6 +24,10 @@ export default defineComponent({
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Sweet Sans Pro", sans-serif;
+}
+
 .header {
   position: sticky;
   top: 0;
