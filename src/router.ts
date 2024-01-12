@@ -5,6 +5,8 @@ import SignupForm from "./pages/SignupForm.vue";
 import ItemDesc from "./components/items/ItemDesc.vue";
 import BestSeller from "./components/product/BestSeller.vue";
 import AllProduct from "./components/product/AllProduct.vue";
+import HomeMade from "./components/product/HomeMade.vue";
+import HolidayItems from "./components/product/HolidayItems.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -15,6 +17,8 @@ const router = createRouter({
     { path: "/items/:id", component: ItemDesc },
     { path: "/products/all", component: AllProduct },
     { path: "/products/bestseller", component: BestSeller },
+    { path: "/products/homemade", component: HomeMade },
+    { path: "/products/holiday", component: HolidayItems },
   ],
 });
 export default router;

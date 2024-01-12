@@ -191,7 +191,7 @@ footer {
 
   bottom: 0;
   display: flex;
-  background-color: beige;
+  background-image: url("https://www.viedefrance.co.jp/delifrance/assets/img/top/bg_sand.png");
   width: 100%;
   font-family: "linotype-didot";
   padding-top: 50px;

@@ -2,7 +2,7 @@
   <base-page :items="bestSeller"> </base-page>
 </template>
 <script setup lang="ts">
-import { useProduct } from "@/stores/Product";
+import { useProduct } from "../../stores/Product";
 const all = useProduct();
 
 const bestSeller = all.items.filter((item) =>

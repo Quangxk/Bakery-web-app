@@ -6,8 +6,12 @@
       <router-link class="title" to="/products/bestseller"
         >Best Sellers</router-link
       >
-      <router-link class="title" to="">Holiday Gifts</router-link>
-      <router-link class="title" to="">Homemade</router-link>
+      <router-link class="title" to="/products/holiday"
+        >Holiday Gifts</router-link
+      >
+      <router-link class="title" to="/products/homemade"
+        >Bake At Home</router-link
+      >
     </div>
     <div>
       <ul class="items">
@@ -35,6 +39,11 @@ import { PropType, defineProps } from "vue";
 import { Item } from "../../stores/Product";
 </script>
 <style scoped>
+* {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+}
 .items {
   margin-left: 50px;
   display: grid;
