@@ -4,7 +4,7 @@
       <div style="display: flex">
         <router-link to="/home" class="logo nav-item">Home</router-link>
         <div class="nav-item">
-          <router-link to="/products/all" href="#">Pastry</router-link>
+          <router-link to="/pastries/all" href="#">Pastry</router-link>
         </div>
         <div class="nav-item">
           <a href="#">Drinks</a>

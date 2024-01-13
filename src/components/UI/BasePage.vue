@@ -1,15 +1,15 @@
 <template>
   <div class="wrapper">
     <div class="image"></div>
-    <div class="nav">
-      <router-link class="title" to="/products/all">All Products</router-link>
-      <router-link class="title" to="/products/bestseller"
+    <div class="nav" v-if="pastry">
+      <router-link class="title" to="/pastries/all">All Products</router-link>
+      <router-link class="title" to="/pastries/bestseller"
         >Best Sellers</router-link
       >
-      <router-link class="title" to="/products/holiday"
+      <router-link class="title" to="/pastries/holiday"
         >Holiday Gifts</router-link
       >
-      <router-link class="title" to="/products/homemade"
+      <router-link class="title" to="/pastries/homemade"
         >Bake At Home</router-link
       >
     </div>
@@ -34,6 +34,10 @@ defineProps({
     required: true,
     type: Array as PropType<Item[]>,
   },
+  pastry: {
+    required: true,
+    type: Boolean,
+  },
 });
 import { PropType, defineProps } from "vue";
 import { Item } from "../../stores/Product";
@@ -45,7 +49,7 @@ import { Item } from "../../stores/Product";
   font-weight: 400;
 }
 .items {
-  margin-left: 50px;
+  margin-left: 135px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 50px;
