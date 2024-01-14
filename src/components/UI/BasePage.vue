@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="image"></div>
+    <div class="banner" :style="`background-image: url('${url}')`">
+      {{ text }}
+    </div>
     <div class="nav" v-if="pastry">
       <router-link class="title" to="/pastries/all">All Products</router-link>
       <router-link class="title" to="/pastries/bestseller"
@@ -38,6 +40,14 @@ defineProps({
     required: true,
     type: Boolean,
   },
+  url: {
+    required: true,
+    type: String,
+  },
+  text: {
+    required: true,
+    type: String,
+  },
 });
 import { PropType, defineProps } from "vue";
 import { Item } from "../../stores/Product";
@@ -58,14 +68,14 @@ li {
   list-style: none;
 }
 .nav {
-  margin-right: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid #002b46;
 }
 .title {
-  margin-left: 80px;
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
 }
 .title::after {
@@ -85,5 +95,13 @@ li {
 }
 a {
   text-decoration: none;
+}
+.banner {
+  padding-top: 180px;
+  padding-bottom: 180px;
+  text-align: center;
+  color: white;
+  background-position: center;
+  background-size: cover;
 }
 </style>

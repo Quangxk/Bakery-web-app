@@ -7,10 +7,8 @@
           <router-link to="/pastries/all" href="#">Pastry</router-link>
         </div>
         <div class="nav-item">
-          <a href="#">Drinks</a>
+          <router-link to="/drinks">Drinks</router-link>
         </div>
-        <transition name="cat"> </transition>
-
         <div class="nav-item"><a href="#">Location</a></div>
         <div class="nav-item">
           <a href="#">About us</a>
