@@ -4,7 +4,6 @@
     <div class="description">
       <p>{{ name }}</p>
       <p>{{ desc }}</p>
-      <p>{{ price }}</p>
       <white-button to="">Add To Cart ${{ price }}</white-button>
     </div>
   </div>
@@ -22,5 +21,6 @@ export default {
 }
 img {
   object-fit: cover;
+  border-radius: 10%;
 }
 </style>

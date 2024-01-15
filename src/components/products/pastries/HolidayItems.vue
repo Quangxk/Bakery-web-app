@@ -12,5 +12,8 @@ const all = useProduct();
 const url =
   "https://www.virginexperiencedays.co.uk/content/img/product/large/b-bakery-christmas-themed-26101326.jpg";
 const text = "test";
-const holiday = all.items.filter((item) => item.categories.includes("holiday"));
+const holiday = all.items.filter(
+  (item) =>
+    item.categories.includes("holiday") && item.type.includes("pastries")
+);
 </script>
