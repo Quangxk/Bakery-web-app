@@ -1,5 +1,11 @@
 <template>
   <link href="https://fonts.cdnfonts.com/css/sweet-sans-pro" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baskervville&display=swap"
+    rel="stylesheet"
+  />
   <the-header class="header"></the-header>
   <router-view></router-view>
   <the-footer></the-footer>

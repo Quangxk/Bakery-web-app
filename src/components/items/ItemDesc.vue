@@ -4,26 +4,19 @@
     :price="item.price"
     :link="item.link"
     :desc="item.description"
+    :category="item.categories"
   ></base-desc>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { Item } from "../../stores/Product";
 import { useProduct } from "../../stores/Product";
 import { useRoute } from "vue-router";
-export default {
-  setup() {
-    const all = useProduct();
-    const { items } = storeToRefs(all);
-    const route = useRoute();
-    const item = items.value.find(
-      (item) => item.id.toString() === route.params.id
-    ) as Item;
-    return {
-      items,
-      item,
-    };
-  },
-};
+const all = useProduct();
+const { items } = storeToRefs(all);
+const route = useRoute();
+const item = items.value.find(
+  (item) => item.id.toString() === route.params.id
+) as Item;
 </script>
 <style scoped></style>

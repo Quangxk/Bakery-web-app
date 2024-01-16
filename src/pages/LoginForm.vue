@@ -7,10 +7,22 @@
         order history and more.
       </p>
       <div>
-        <input type="text" placeholder="Email" />
+        <input
+          type="text"
+          placeholder="Email"
+          v-model="email"
+          @blur="validateEmail"
+          :class="{ invalid: invalidEmail }"
+        />
       </div>
       <div>
-        <input type="text" placeholder="PassWord" />
+        <input
+          type="text"
+          placeholder="PassWord"
+          v-model="password"
+          @blur="validatePassword"
+          :class="{ invalid: invalidPassword }"
+        />
       </div>
       <a href="#">Forgot PassWord?</a>
       <black-button to="" class="button"> Login </black-button>
@@ -50,8 +62,27 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-export default {};
+
+<script setup lang="ts">
+import { ref } from "vue";
+const email = ref("");
+var invalidEmail = ref(false);
+var invalidPassword = ref(false);
+const password = ref("");
+function validateEmail() {
+  if (email.value === "") {
+    invalidEmail.value = true;
+  } else {
+    invalidEmail.value = false;
+  }
+}
+function validatePassword() {
+  if (email.value === "") {
+    invalidPassword.value = true;
+  } else {
+    invalidPassword.value = false;
+  }
+}
 </script>
 <style scoped>
 h2 {
@@ -124,5 +155,8 @@ button {
 .instagram {
   background-color: rgb(236, 37, 113);
   display: flex;
+}
+.invalid {
+  border: 1px solid red;
 }
 </style>
