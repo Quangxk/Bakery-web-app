@@ -7,25 +7,27 @@
         order history and more.
       </p>
       <div>
+        <p v-if="emailAlert" style="color: red">Invalid Email</p>
         <input
           type="text"
-          placeholder="Email"
-          v-model="email"
-          @blur="validateEmail"
+          :placeholder="emailPlaceholder"
+          v-model.trim="email"
           :class="{ invalid: invalidEmail }"
         />
       </div>
       <div>
+        <p v-if="passwordAlert" style="color: red">Invalid Password</p>
         <input
           type="text"
-          placeholder="PassWord"
+          :placeholder="passwordPlaceholder"
           v-model="password"
-          @blur="validatePassword"
           :class="{ invalid: invalidPassword }"
         />
       </div>
       <a href="#">Forgot PassWord?</a>
-      <black-button to="" class="button"> Login </black-button>
+      <black-button to="" class="button" @click="validate">
+        Login
+      </black-button>
       <router-link to="/account/signup">Create account</router-link>
       <p style="margin-top: 15px">---------------or---------------</p>
       <div class="login facebook">
@@ -66,22 +68,45 @@
 <script setup lang="ts">
 import { ref } from "vue";
 const email = ref("");
+var emailAlert = ref(false);
+var passwordAlert = ref(false);
 var invalidEmail = ref(false);
 var invalidPassword = ref(false);
 const password = ref("");
+var emailPlaceholder = "Email";
+var passwordPlaceholder = "Password";
+function emailTest() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email.value);
+}
 function validateEmail() {
   if (email.value === "") {
     invalidEmail.value = true;
+    emailPlaceholder = "Please enter an email";
+  } else if (!emailTest()) {
+    invalidEmail.value = true;
+    emailAlert.value = true;
   } else {
     invalidEmail.value = false;
+    emailAlert.value = false;
   }
 }
 function validatePassword() {
-  if (email.value === "") {
+  if (password.value === "") {
     invalidPassword.value = true;
+    passwordPlaceholder = "Please enter a password";
+  } else if (!(password.value.length >= 8 && !/\s/.test(password.value))) {
+    invalidPassword.value = true;
+    passwordAlert.value = true;
   } else {
     invalidPassword.value = false;
+    passwordAlert.value = false;
   }
+}
+function validate() {
+  validateEmail();
+  validatePassword();
+  console.log(emailTest());
 }
 </script>
 <style scoped>
@@ -98,15 +123,18 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+::placeholder {
+  opacity: 1;
+}
 .form {
   border-radius: 20px;
   background-color: white;
-  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 50px;
   text-align: center;
 }
@@ -157,6 +185,6 @@ button {
   display: flex;
 }
 .invalid {
-  border: 1px solid red;
+  border-bottom: 1px solid red;
 }
 </style>

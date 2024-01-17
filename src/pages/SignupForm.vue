@@ -8,7 +8,12 @@
       </p>
       <div style="display: flex">
         <div>
-          <input type="text" class="input" placeholder="First Name" />
+          <input
+            type="text"
+            class="input"
+            placeholder="First Name"
+            style="margin-left: 7px"
+          />
         </div>
         <div>
           <input
@@ -24,6 +29,9 @@
       </div>
       <div>
         <input type="text" placeholder="Password" />
+      </div>
+      <div>
+        <input type="text" placeholder="Confirm Password" />
       </div>
       <black-button to="" class="button"> Create account </black-button>
       <div style="display: flex; justify-content: center">
@@ -84,7 +92,6 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,7 +99,8 @@ a {
 .form {
   border-radius: 20px;
   background-color: white;
-  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 50px;
   text-align: center;
 }
