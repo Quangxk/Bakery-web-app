@@ -1,8 +1,13 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <p class="caption">brot und kaffe</p>
-      <white-button class="button" to="/all">discover now</white-button>
+      <div class="caption">
+        <p>This is a bakery</p>
+        <p class="lol">(we also have drinks lol)</p>
+      </div>
+      <white-button class="button" to="/pastries/all"
+        >discover now</white-button
+      >
     </div>
   </div>
 </template>
@@ -42,5 +47,9 @@
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 200px;
+}
+.lol {
+  font-size: 20px;
+  letter-spacing: 3px;
 }
 </style>

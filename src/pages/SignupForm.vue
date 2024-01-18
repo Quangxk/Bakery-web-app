@@ -9,31 +9,58 @@
       <div style="display: flex">
         <div>
           <input
+            :class="{ invalid: firstInvalid }"
             type="text"
             class="input"
-            placeholder="First Name"
+            :placeholder="firstPlaceholder"
+            v-model="firstName"
             style="margin-left: 7px"
           />
         </div>
         <div>
           <input
+            :class="{ invalid: lastInvalid }"
             type="text"
             class="input"
+            v-model="lastName"
             style="margin-left: 60px"
-            placeholder="Last Name"
+            :placeholder="lastPlaceholder"
           />
         </div>
       </div>
       <div>
-        <input type="text" placeholder="Email" />
+        <p style="color: red" v-if="emailAlert">Invalid Email</p>
+
+        <input
+          type="text"
+          :placeholder="emailPlaceholder"
+          v-model="email"
+          :class="{ invalid: emailInvalid }"
+        />
       </div>
       <div>
-        <input type="text" placeholder="Password" />
+        <p style="color: red" v-if="passAlert">Invalid Password</p>
+
+        <input
+          type="text"
+          :placeholder="passPlaceholder"
+          v-model="password"
+          :class="{ invalid: passInvalid }"
+        />
       </div>
       <div>
-        <input type="text" placeholder="Confirm Password" />
+        <p style="color: red" v-if="confirmAlert">Passwords aren't match</p>
+
+        <input
+          type="text"
+          :placeholder="confirmPlaceholder"
+          v-model="confirm"
+          :class="{ invalid: confirmInvalid }"
+        />
       </div>
-      <black-button to="" class="button"> Create account </black-button>
+      <black-button to="" class="button" @click="validate">
+        Create account
+      </black-button>
       <div style="display: flex; justify-content: center">
         <p style="text-transform: uppercase; font-size: 14px">
           already have an account?
@@ -77,7 +104,90 @@
     </div>
   </div>
 </template>
-<script lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+var firstName = ref("");
+var firstInvalid = ref(false);
+var firstPlaceholder = ref("Firstname");
+var lastInvalid = ref(false);
+var lastPlaceholder = ref("Lastname");
+var emailInvalid = ref(false);
+var emailPlaceholder = ref("Email");
+var passInvalid = ref(false);
+var passPlaceholder = ref("Password");
+var confirmPlaceholder = ref("Confirm Password");
+var confirmInvalid = ref(false);
+var lastName = ref("");
+var password = ref("");
+var email = ref("");
+var confirm = ref("");
+var emailAlert = ref(false);
+var passAlert = ref(false);
+var confirmAlert = ref(false);
+function validateFirst() {
+  if (firstName.value === "") {
+    firstInvalid.value = true;
+    firstPlaceholder.value = "Empty firstname";
+  } else {
+    firstInvalid.value = false;
+  }
+}
+function validateLast() {
+  if (lastName.value === "") {
+    lastInvalid.value = true;
+    lastPlaceholder.value = "Empty lastname";
+  } else {
+    lastInvalid.value = false;
+  }
+}
+function emailTest() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email.value);
+}
+function validateEmail() {
+  if (email.value === "") {
+    emailInvalid.value = true;
+    emailPlaceholder.value = "Empty email";
+  } else if (!emailTest()) {
+    emailInvalid.value = true;
+    emailAlert.value = true;
+  } else {
+    emailInvalid.value = false;
+    emailAlert.value = false;
+  }
+}
+function validatePassword() {
+  if (password.value === "") {
+    passInvalid.value = true;
+    passPlaceholder.value = "Empty password";
+  } else if (!(password.value.length >= 8 && !/\s/.test(password.value))) {
+    passInvalid.value = true;
+    passAlert.value = true;
+  } else {
+    passInvalid.value = false;
+    passAlert.value = false;
+  }
+}
+function validateConfirm() {
+  if (confirm.value === "") {
+    confirmInvalid.value = true;
+    confirmPlaceholder.value = "Empty confirm password";
+  } else if (confirm.value != password.value) {
+    confirmInvalid.value = true;
+    confirmAlert.value = true;
+  } else {
+    confirmInvalid.value = false;
+    confirmAlert.value = false;
+  }
+}
+function validate() {
+  validateFirst();
+  validateLast();
+  validateEmail();
+  validatePassword();
+  validateConfirm();
+}
+</script>
 <style scoped>
 h2 {
   margin-bottom: 30px;
@@ -158,5 +268,8 @@ button {
 .instagram {
   background-color: rgb(236, 37, 113);
   display: flex;
+}
+.invalid {
+  border-bottom: 1px solid red;
 }
 </style>

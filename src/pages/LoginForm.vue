@@ -11,7 +11,7 @@
         <input
           type="text"
           :placeholder="emailPlaceholder"
-          v-model.trim="email"
+          v-model="email"
           :class="{ invalid: invalidEmail }"
         />
       </div>
@@ -73,8 +73,8 @@ var passwordAlert = ref(false);
 var invalidEmail = ref(false);
 var invalidPassword = ref(false);
 const password = ref("");
-var emailPlaceholder = "Email";
-var passwordPlaceholder = "Password";
+var emailPlaceholder = ref("Email");
+var passwordPlaceholder = ref("Password");
 function emailTest() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email.value);
@@ -82,7 +82,7 @@ function emailTest() {
 function validateEmail() {
   if (email.value === "") {
     invalidEmail.value = true;
-    emailPlaceholder = "Please enter an email";
+    emailPlaceholder.value = "Please enter an email";
   } else if (!emailTest()) {
     invalidEmail.value = true;
     emailAlert.value = true;
@@ -94,7 +94,7 @@ function validateEmail() {
 function validatePassword() {
   if (password.value === "") {
     invalidPassword.value = true;
-    passwordPlaceholder = "Please enter a password";
+    passwordPlaceholder.value = "Please enter a password";
   } else if (!(password.value.length >= 8 && !/\s/.test(password.value))) {
     invalidPassword.value = true;
     passwordAlert.value = true;
