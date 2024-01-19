@@ -9,7 +9,7 @@
       <div style="display: flex">
         <div>
           <input
-            :class="{ invalid: firstInvalid }"
+            :class="{ invalid: invalidFirst }"
             type="text"
             class="input"
             :placeholder="firstPlaceholder"
@@ -19,7 +19,7 @@
         </div>
         <div>
           <input
-            :class="{ invalid: lastInvalid }"
+            :class="{ invalid: invalidLast }"
             type="text"
             class="input"
             v-model="lastName"
@@ -30,12 +30,13 @@
       </div>
       <div>
         <p style="color: red" v-if="emailAlert">Invalid Email</p>
+        <p style="color: red" v-if="emailAlert2">Email Already Taken</p>
 
         <input
           type="text"
           :placeholder="emailPlaceholder"
           v-model="email"
-          :class="{ invalid: emailInvalid }"
+          :class="{ invalid: invalidEmail }"
         />
       </div>
       <div>
@@ -45,7 +46,7 @@
           type="text"
           :placeholder="passPlaceholder"
           v-model="password"
-          :class="{ invalid: passInvalid }"
+          :class="{ invalid: invalidPassword }"
         />
       </div>
       <div>
@@ -55,7 +56,7 @@
           type="text"
           :placeholder="confirmPlaceholder"
           v-model="confirm"
-          :class="{ invalid: confirmInvalid }"
+          :class="{ invalid: invalidConfirm }"
         />
       </div>
       <black-button to="" class="button" @click="validate">
@@ -106,17 +107,20 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
+import { onMounted } from "vue";
+import axios from "axios";
+var user: string[] = [];
 var firstName = ref("");
-var firstInvalid = ref(false);
+var invalidFirst = ref(false);
 var firstPlaceholder = ref("Firstname");
-var lastInvalid = ref(false);
+var invalidLast = ref(false);
 var lastPlaceholder = ref("Lastname");
-var emailInvalid = ref(false);
+var invalidEmail = ref(false);
 var emailPlaceholder = ref("Email");
-var passInvalid = ref(false);
+var invalidPassword = ref(false);
 var passPlaceholder = ref("Password");
 var confirmPlaceholder = ref("Confirm Password");
-var confirmInvalid = ref(false);
+var invalidConfirm = ref(false);
 var lastName = ref("");
 var password = ref("");
 var email = ref("");
@@ -124,59 +128,71 @@ var confirm = ref("");
 var emailAlert = ref(false);
 var passAlert = ref(false);
 var confirmAlert = ref(false);
+var emailAlert2 = ref(false);
 function validateFirst() {
   if (firstName.value === "") {
-    firstInvalid.value = true;
+    invalidFirst.value = true;
     firstPlaceholder.value = "Empty firstname";
   } else {
-    firstInvalid.value = false;
+    invalidFirst.value = false;
   }
 }
 function validateLast() {
   if (lastName.value === "") {
-    lastInvalid.value = true;
+    invalidLast.value = true;
     lastPlaceholder.value = "Empty lastname";
   } else {
-    lastInvalid.value = false;
+    invalidLast.value = false;
   }
 }
 function emailTest() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email.value);
 }
+function checkDuplicate() {
+  for (const item in user) {
+    if (email.value == item) {
+      return true;
+    }
+  }
+  return false;
+}
 function validateEmail() {
   if (email.value === "") {
-    emailInvalid.value = true;
+    invalidEmail.value = true;
     emailPlaceholder.value = "Empty email";
   } else if (!emailTest()) {
-    emailInvalid.value = true;
+    invalidEmail.value = true;
     emailAlert.value = true;
+  } else if (checkDuplicate()) {
+    invalidEmail.value = true;
+    emailAlert2.value = true;
   } else {
-    emailInvalid.value = false;
+    invalidEmail.value = false;
     emailAlert.value = false;
   }
 }
 function validatePassword() {
   if (password.value === "") {
-    passInvalid.value = true;
+    invalidPassword.value = true;
     passPlaceholder.value = "Empty password";
   } else if (!(password.value.length >= 8 && !/\s/.test(password.value))) {
-    passInvalid.value = true;
+    invalidPassword.value = true;
     passAlert.value = true;
   } else {
-    passInvalid.value = false;
+    invalidPassword.value = false;
     passAlert.value = false;
   }
 }
 function validateConfirm() {
   if (confirm.value === "") {
-    confirmInvalid.value = true;
+    invalidConfirm.value = true;
     confirmPlaceholder.value = "Empty confirm password";
   } else if (confirm.value != password.value) {
-    confirmInvalid.value = true;
+    invalidConfirm.value = true;
     confirmAlert.value = true;
   } else {
-    confirmInvalid.value = false;
+    invalidConfirm.value = false;
     confirmAlert.value = false;
   }
 }
@@ -186,7 +202,41 @@ function validate() {
   validateEmail();
   validatePassword();
   validateConfirm();
+  checkDuplicate();
+  if (
+    invalidEmail.value === false &&
+    invalidPassword.value === false &&
+    invalidFirst.value === false &&
+    invalidLast.value === false &&
+    invalidConfirm.value === false
+  ) {
+    axios
+      .post(
+        "https://vue-bakery-eb895-default-rtdb.asia-southeast1.firebasedatabase.app/UsersInfo.json",
+        {
+          FirstName: firstName,
+          LastName: lastName,
+          Email: email,
+          Password: password,
+        }
+      )
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  }
 }
+onMounted(() => {
+  axios
+    .get(
+      "https://vue-bakery-eb895-default-rtdb.asia-southeast1.firebasedatabase.app/UsersInfo.json"
+    )
+    .then((response) => {
+      for (const id in response.data) {
+        user.push(response.data[id].Email._value);
+      }
+      console.log(user);
+    })
+    .catch((err) => console.log(err));
+});
 </script>
 <style scoped>
 h2 {

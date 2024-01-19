@@ -66,7 +66,17 @@
 </template>
 
 <script setup lang="ts">
+interface User {
+  // id: string;
+  FirstName: string;
+  LastName: string;
+  Email: string;
+  Password: string;
+}
 import { ref } from "vue";
+import { onMounted } from "vue";
+import axios from "axios";
+var data: User[] = [];
 const email = ref("");
 var emailAlert = ref(false);
 var passwordAlert = ref(false);
@@ -106,8 +116,23 @@ function validatePassword() {
 function validate() {
   validateEmail();
   validatePassword();
-  console.log(emailTest());
 }
+onMounted(() => {
+  axios
+    .get(
+      "https://vue-bakery-eb895-default-rtdb.asia-southeast1.firebasedatabase.app/UsersInfo.json"
+    )
+    .then((response) => {
+      for (const id in response.data) {
+        data.push({
+          FirstName: response.data[id].FirstName,
+          LastName: response.data[id].LastName,
+          Email: response.data[id].Email,
+          Password: response.data[id].Password,
+        });
+      }
+    });
+});
 </script>
 <style scoped>
 h2 {
