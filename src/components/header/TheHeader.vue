@@ -93,6 +93,8 @@ header {
 }
 a {
   color: whitesmoke;
+  letter-spacing: 0.2em;
+  font-size: 14px;
 }
 nav {
   display: flex;

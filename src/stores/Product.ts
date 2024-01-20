@@ -18,7 +18,7 @@ export const useProduct = defineStore("Product", {
         id: 1,
         type: ["pastries"],
         name: "Chocolate Cake",
-        categories: ["bestseller", "lol"],
+        categories: ["bestseller"],
         price: 20 as string | number,
         description:
           "Dive into the irresistible allure of our Chocolate Cake. This heavenly creation boasts layers of moist chocolate cake embraced by velvety chocolate ganache, creating a symphony of indulgent flavors.",
@@ -29,10 +29,10 @@ export const useProduct = defineStore("Product", {
         categories: ["bestseller"],
         type: ["pastries"],
 
-        name: "Oreo Cheesecake Cookies",
+        name: "Oreo Cookies",
         price: 21 as string | number,
         description:
-          "Introducing our Oreo Cheesecake Cookies, a delightful fusion of two beloved classics. Each cookie is a miniature masterpiece, combining the creamy richness of cheesecake with the iconic crunch of Oreo cookies.",
+          "Introducing our Oreo Cookies, a delightful fusion of two beloved classics. Each cookie is a miniature masterpiece, combining the creamy richness of cheesecake with the iconic crunch of Oreo cookies.",
       },
       {
         link: "https://www.cookingclassy.com/wp-content/uploads/2017/11/pumpkin-pie-12.jpg",

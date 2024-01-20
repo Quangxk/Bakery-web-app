@@ -17,8 +17,6 @@ export default {
 };
 </script>
 <style scoped>
-body {
-}
 .wrapper {
   padding: 100px;
   display: flex;
@@ -62,9 +60,9 @@ img:hover {
 }
 .titles li {
   margin-right: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   letter-spacing: 0.2rem;
-  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 li {
   list-style: none;
