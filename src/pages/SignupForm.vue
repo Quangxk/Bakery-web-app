@@ -105,9 +105,11 @@
         <a href="#" style="text-transform: none">here</a>
       </p>
     </div>
+    <button @click="test">push</button>
   </div>
 </template>
 <script setup lang="ts">
+import { useProduct } from "@/stores/Product";
 import { ref } from "vue";
 import { onMounted } from "vue";
 import router from "@/router";
@@ -132,6 +134,7 @@ var emailAlert = ref(false);
 var passAlert = ref(false);
 var confirmAlert = ref(false);
 var emailAlert2 = ref(false);
+var all = useProduct().items;
 function validateFirst() {
   if (firstName.value === "") {
     invalidFirst.value = true;
@@ -163,13 +166,17 @@ function checkDuplicate() {
 function validateEmail() {
   if (email.value === "") {
     invalidEmail.value = true;
+    emailAlert.value = false;
+    emailAlert2.value = false;
     emailPlaceholder.value = "Empty email";
   } else if (!emailTest()) {
     invalidEmail.value = true;
     emailAlert.value = true;
+    emailAlert2.value = false;
   } else if (checkDuplicate()) {
     invalidEmail.value = true;
     emailAlert2.value = true;
+    emailAlert.value = false;
   } else {
     invalidEmail.value = false;
     emailAlert.value = false;
@@ -187,6 +194,7 @@ function validatePassword() {
     passAlert.value = false;
   }
 }
+
 function validateConfirm() {
   if (confirm.value === "") {
     invalidConfirm.value = true;
@@ -198,6 +206,12 @@ function validateConfirm() {
     invalidConfirm.value = false;
     confirmAlert.value = false;
   }
+}
+function test() {
+  axios.post(
+    "https://vue-bakery-eb895-default-rtdb.asia-southeast1.firebasedatabase.app/Items.json",
+    {}
+  );
 }
 function validate() {
   validateFirst();

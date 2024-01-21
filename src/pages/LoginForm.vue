@@ -123,7 +123,6 @@ function checkAccount() {
       wrongPassword.value = false;
       emailNotExist.value = false;
       console.log(emailNotExist.value);
-
       return true;
     }
   }
