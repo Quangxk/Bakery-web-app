@@ -19,11 +19,12 @@ const Getdata = async () => {
     for (const id in response.data) {
       items.push(response.data[id]);
     }
+    console.log(items);
   } catch (err) {
     console.log(err);
   }
 };
-Getdata();
+await Getdata();
 export const useProduct = defineStore("Product", {
   state: () => ({
     items,
