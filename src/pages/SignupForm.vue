@@ -105,7 +105,6 @@
         <a href="#" style="text-transform: none">here</a>
       </p>
     </div>
-    <button @click="test">push</button>
   </div>
 </template>
 <script setup lang="ts">
@@ -206,12 +205,6 @@ function validateConfirm() {
     invalidConfirm.value = false;
     confirmAlert.value = false;
   }
-}
-function test() {
-  axios.post(
-    "https://vue-bakery-eb895-default-rtdb.asia-southeast1.firebasedatabase.app/Items.json",
-    {}
-  );
 }
 function validate() {
   validateFirst();
