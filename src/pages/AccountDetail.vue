@@ -12,38 +12,40 @@
         <div class="head">
           <p style="text-transform: uppercase">Personal Information</p>
         </div>
-        <div class="name">
-          <input
-            :class="{ invalid: invalidFirst }"
-            type="text"
-            class="input"
-            :placeholder="firstPlaceholder"
-            v-model="firstName"
-            style="margin-left: 7px"
-          />
-          <div>
+        <div style="display: flex">
+          <p>sdasdsadasdadasda</p>
+          <div class="name">
             <input
-              :class="{ invalid: invalidLast }"
+              :class="{ invalid: invalidFirst }"
               type="text"
               class="input"
-              v-model="lastName"
-              style="margin-left: 60px"
-              :placeholder="lastPlaceholder"
+              :placeholder="firstPlaceholder"
+              v-model="firstName"
+              style="margin-left: 7px"
+            />
+            <div>
+              <input
+                :class="{ invalid: invalidLast }"
+                type="text"
+                class="input"
+                v-model="lastName"
+                style="margin-left: 60px"
+                :placeholder="lastPlaceholder"
+              />
+            </div>
+          </div>
+          <div>
+            <p style="color: red" v-if="emailAlert">Invalid Email</p>
+            <p style="color: red" v-if="emailAlert2">Email Already Taken</p>
+
+            <input
+              type="text"
+              :placeholder="emailPlaceholder"
+              v-model="email"
+              :class="{ invalid: invalidEmail }"
             />
           </div>
-        </div>
-        <div>
-          <p style="color: red" v-if="emailAlert">Invalid Email</p>
-          <p style="color: red" v-if="emailAlert2">Email Already Taken</p>
-
-          <input
-            type="text"
-            :placeholder="emailPlaceholder"
-            v-model="email"
-            :class="{ invalid: invalidEmail }"
-          />
-        </div>
-        <div>
+          <!-- <div>
           <p style="color: red" v-if="passAlert">Invalid Password</p>
 
           <input
@@ -62,6 +64,7 @@
             v-model="confirm"
             :class="{ invalid: invalidConfirm }"
           />
+        </div> -->
         </div>
         <black-button to="/account/login" class="button">
           Update Account
@@ -110,6 +113,12 @@ var emailAlert2 = ref(false);
   display: block;
   padding: 15px 30px;
   text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.title:hover {
+  background-color: rgb(45, 65, 65);
+  color: white;
 }
 .wrapper {
   display: flex;
