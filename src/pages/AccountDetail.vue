@@ -7,13 +7,18 @@
       <router-link class="title" to="/account/orders">My Orders</router-link>
     </div>
     <div class="detail">
-      <h2 style="text-transform: uppercase">My Details</h2>
+      <h2 style="text-transform: uppercase;margin-bottom: 20px;in">
+        My Details
+      </h2>
       <div class="information">
         <div class="head">
           <p style="text-transform: uppercase">Personal Information</p>
         </div>
-        <div style="display: flex">
-          <p>sdasdsadasdadasda</p>
+        <div style="display: flex; justify-content: space-between">
+          <p style="font-size: 14px; line-height: 20px">
+            Welcome to your profile! Feel free to view and update your first and
+            last name here.
+          </p>
           <div class="name">
             <input
               :class="{ invalid: invalidFirst }"
@@ -34,7 +39,9 @@
               />
             </div>
           </div>
-          <div>
+        </div>
+
+        <!-- <div>
             <p style="color: red" v-if="emailAlert">Invalid Email</p>
             <p style="color: red" v-if="emailAlert2">Email Already Taken</p>
 
@@ -44,8 +51,8 @@
               v-model="email"
               :class="{ invalid: invalidEmail }"
             />
-          </div>
-          <!-- <div>
+          </div> -->
+        <!-- <div>
           <p style="color: red" v-if="passAlert">Invalid Password</p>
 
           <input
@@ -65,7 +72,6 @@
             :class="{ invalid: invalidConfirm }"
           />
         </div> -->
-        </div>
         <black-button to="/account/login" class="button">
           Update Account
         </black-button>
@@ -96,14 +102,15 @@ var confirmAlert = ref(false);
 var emailAlert2 = ref(false);
 </script>
 <style scoped>
+.head {
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
 .detail {
-  width: 900px;
+  width: 700px;
   background-color: white;
   border-radius: 5%;
   padding: 15px;
-}
-.information {
-  width: 500px;
 }
 .name {
   display: flex;
@@ -132,7 +139,7 @@ var emailAlert2 = ref(false);
   height: 50px;
   outline: none;
   font-size: 15px;
-  width: 130px;
+  width: 180px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -147,6 +154,9 @@ input {
   margin-bottom: 10px;
 }
 .button {
+  margin-left: 180px;
+  text-align: center;
+  width: 300px;
   margin-bottom: 20px;
   margin-top: 20px;
   display: block;
